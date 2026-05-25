@@ -1,0 +1,58 @@
+[user]
+	email = espen@otterstad.me
+	name = Espen Otterstad
+
+[core]
+	pager = delta
+	editor = code --wait
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true          # n/N jumps between diff sections in pager
+	line-numbers = true
+	side-by-side = true
+	hyperlinks = true        # file references become clickable in kitty
+	hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+
+[merge]
+	conflictstyle = zdiff3
+	tool = vscode
+
+[mergetool "vscode"]
+	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+
+[mergetool]
+	keepBackup = false
+
+[diff]
+	colorMoved = default
+	tool = kittydiff
+
+[difftool "kittydiff"]
+	cmd = kitten diff "$LOCAL" "$REMOTE"
+
+[difftool]
+	prompt = false
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+[push]
+	autoSetupRemote = true
+
+[rebase]
+	autoStash = true
+
+[rerere]
+	enabled = true           # remember conflict resolutions
+
+[commit]
+	verbose = true           # show diff in commit message editor
+
+[fetch]
+	prune = true             # delete remote-tracking branches that no longer exist

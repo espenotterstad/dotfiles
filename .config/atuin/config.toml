@@ -1,0 +1,47 @@
+# ~/.config/atuin/config.toml
+# Local-only mode — no account, no network. To add sync later:
+#   `atuin register -u <name> -e <email>` then `atuin sync`
+
+## ── Recording ────────────────────────────────────────────────────────
+# Don't record commands matching these patterns (regex)
+history_filter = [
+    "^secret-cmd",
+    "^innocuous-cmd .*--secret=.+",
+]
+
+# Don't record commands in these directories (uses real path after symlinks)
+cwd_filter = []
+
+## ── UI ──────────────────────────────────────────────────────────────
+# Full-screen picker on Ctrl+R (alternatives: "compact", "inline")
+style = "compact"
+
+# How many history entries to show in the picker
+inline_height = 25
+
+# Show preview pane (full command + timestamp + duration + cwd)
+show_preview = true
+
+# Default search mode: "fuzzy" matches like fzf; alternatives: "prefix", "fulltext"
+search_mode = "fuzzy"
+
+# Filter scope: "global" (all hosts/sessions), "host", "session", "directory"
+filter_mode = "global"
+
+# What to filter by when invoked via Ctrl+R specifically
+filter_mode_shell_up_key_binding = "session"
+
+# Show command timestamps in the list
+show_help = true
+
+## ── Sync (disabled) ─────────────────────────────────────────────────
+auto_sync = false
+update_check = false
+# sync_address = "https://api.atuin.sh"   # commented = no sync
+
+## ── Stats ───────────────────────────────────────────────────────────
+# Commands to ignore in `atuin stats` (already common-noise commands)
+common_prefix = ["sudo"]
+common_subcommands = [
+    "cargo", "go", "git", "kubectl", "npm", "yarn", "make", "pnpm",
+]
