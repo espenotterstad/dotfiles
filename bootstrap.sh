@@ -1,11 +1,26 @@
 #!/usr/bin/env bash
 # bootstrap.sh — fresh machine setup (Debian/Ubuntu)
 # Installs all packages, fonts, then symlinks dotfiles.
-# Usage: git clone <repo> ~/dotfiles && cd ~/dotfiles && ./bootstrap.sh
+#
+# One-liner for a new machine:
+#   bash <(curl -fsSL https://raw.githubusercontent.com/espenotterstad/dotfiles/main/bootstrap.sh)
+#
+# Or if you've already cloned:
+#   cd ~/git/dotfiles && ./bootstrap.sh
 
 set -euo pipefail
 
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_REPO="https://github.com/espenotterstad/dotfiles.git"
+DOTFILES_DIR="$HOME/git/dotfiles"
+
+# Clone if running the script from outside the repo (e.g. via curl | bash)
+if [[ ! -d "$DOTFILES_DIR/.git" ]]; then
+    echo "→ Cloning dotfiles…"
+    mkdir -p "$(dirname "$DOTFILES_DIR")"
+    git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
+else
+    DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+fi
 
 echo "════════════════════════════════════════"
 echo " Dotfiles bootstrap — Debian/Ubuntu"
