@@ -19,23 +19,22 @@ Personal dev environment for Debian/Ubuntu — kitty, starship, git, atuin, and 
 ## Fresh machine setup
 
 ```bash
-git clone git@github.com:espeno/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-./bootstrap.sh
+bash <(curl -fsSL https://raw.githubusercontent.com/espenotterstad/dotfiles/main/bootstrap.sh)
 ```
 
-`bootstrap.sh` will:
-1. `apt install` all packages (kitty, firacode, delta, lazygit, fzf, zoxide, eza, bat, starship, atuin)
-2. Download Symbols Nerd Font (for prompt icons)
-3. Import existing shell history into atuin
-4. Symlink all configs into place (backs up any existing files)
+That's it. The script will:
+1. Clone this repo to `~/git/dotfiles`
+2. `apt install` all packages (kitty, firacode, delta, lazygit, fzf, zoxide, eza, bat, starship, atuin)
+3. Download Symbols Nerd Font (for prompt icons)
+4. Import existing shell history into atuin
+5. Symlink all configs into place (backs up any existing files)
 
 ## Updating an existing machine
 
 After pulling changes:
 
 ```bash
-cd ~/dotfiles
+cd ~/git/dotfiles
 git pull
 ./install.sh   # re-links any new files
 ```
