@@ -19,6 +19,7 @@ declare -A LINKS=(
     [".config/kitty/open-actions.conf"]=".config/kitty/open-actions.conf"
     [".config/kitty/ssh.conf"]=".config/kitty/ssh.conf"
     [".config/atuin/config.toml"]=".config/atuin/config.toml"
+    [".config/Code/User/settings.json"]=".config/Code/User/settings.json"
 )
 
 echo "→ Installing dotfiles from $DOTFILES_DIR"

@@ -1,0 +1,10 @@
+{
+    "workbench.colorTheme": "Solarized Dark",
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "'Maple Mono', 'monospace'",
+    "editor.fontLigatures": true,
+    "editor.letterSpacing": 0.5,
+    "editor.lineHeight": 1.6,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true
+}
