@@ -150,3 +150,6 @@ command -v zoxide >/dev/null && eval "$(zoxide init bash)"
 # atuin: replaces shell history. Ctrl+R = full-screen searchable picker.
 # Up-arrow stays as plain history per --disable-up-arrow.
 command -v atuin >/dev/null && eval "$(atuin init bash --disable-up-arrow)"
+export PATH="$HOME/maven/bin:$PATH"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
